@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     name: 'roles-list',
     data () {
@@ -27,26 +28,31 @@ export default {
             { text: 'Edit', sortable: false },
             { text: 'Delete', sortable: false }
             ],
-            items: []
+           
 
         }
     },
+    computed: {
+       ...mapGetters({
+           items: 'items',
+           refresh: 'refresh'
+       }) 
+    },
+    watch: {
+        refresh() {
+            this.$store.dispatch('items')
+        }
+    },
     methods: {
-        getItems () {
-            axios('roles')
-            .then(result=> this.items = result.data.data)
-        },
+     
         deleteItem(id) {
-            axios.delete(`/roles/${id}`)
-            .then(() =>{
-                this.getItems()
-            })
+         this.$store.dispatch('deleteItem', id)
 
         }
     },
 
     created () {
-     this.getItems()
+    this.$store.dispatch('items')
     } 
 }  
 
