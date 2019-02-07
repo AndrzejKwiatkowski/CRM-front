@@ -8,6 +8,7 @@ import Login from './components/auth/Login.vue'
 import RolesList from './components/roles/List.vue'
 import UsersList from './components/users/List.vue'
 import Role from './components/roles/Role.vue'
+import EventsList from './components/events/List.vue'
 
 
 
@@ -53,6 +54,11 @@ export default new Router({
           path: '/users',
           name: 'userslist',
           component: UsersList,
+        },
+        {
+          path: '/events',
+          name: 'Eventslist',
+          component: EventsList,
         },
       ]
       

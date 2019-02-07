@@ -53,6 +53,7 @@ export default {
       items: [
         { icon: 'settings', text: 'Lista ról', path: '/roles' },
         { icon: 'settings', text: 'Lista użytkowników', path: '/users' },
+        { icon: 'settings', text: 'Lista wydarzeń', path: '/events' },
       
       ]
     }),
